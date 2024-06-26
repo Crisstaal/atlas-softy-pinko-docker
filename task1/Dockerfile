@@ -15,10 +15,10 @@ RUN mkdir -p /app
 WORKDIR /app
 
 # Copy the Flask app code into the container
-COPY app.py /app
+COPY api.py /app
 
 # Set the environment variable to tell Flask to run in container
-ENV FLASK_APP=app.py
+ENV FLASK_APP=api.py
 
 # Expose the port that the Flask app will run on
 EXPOSE 5252
