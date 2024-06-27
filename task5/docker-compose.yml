@@ -1,0 +1,26 @@
+services:
+
+  proxy:
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
+    image: task5_proxy
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+      - frontend
+
+  backend:
+    build:
+      context: ./back-end
+      dockerfile: Dockerfile
+    image: task4_backend
+
+  frontend:
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile
+    image: task4_frontend
+    depends_on:
+      - backend
