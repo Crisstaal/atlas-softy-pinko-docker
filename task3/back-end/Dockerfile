@@ -9,19 +9,15 @@ RUN apt-get install -y python3 python3-pip
 RUN pip3 install Flask
 
 # Create a directory for the app
-RUN mkdir -p /app
+RUN pip3 install flask-cors
 
 # Set the working directory
 WORKDIR /app
 
 # Copy the Flask app code into the container
-COPY api.py /app
-
-# Set the environment variable to tell Flask to run in container
-ENV FLASK_APP=api.py
+COPY ./api.py /app/api.py
 
 # Expose the port that the Flask app will run on
 EXPOSE 5252
 
-# Run the Flask app
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5252"]
+CMD ["python3", "/app/api.py"]
