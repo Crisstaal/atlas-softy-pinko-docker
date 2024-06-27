@@ -1,4 +1,4 @@
-FROM nginx:latest
+FROM nginx:22.04
 
 COPY ./softy-pinko-front-end /var/www/html/softy-pinko-front-end
 
